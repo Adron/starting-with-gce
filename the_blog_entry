@@ -1,0 +1,206 @@
+<strong>Mission:</strong> I wanted to setup an instance, that I could install various things on and prepare it to act as a Terraformer or central server within GCE to spawn instances, setup networks, and generally manage the network autonomously of any local scripts or junk I have on my local computer. To set this up, I would of course have to launch it from my local computer, so there's a whole range of things I'd need to have execute. To accomplish this, here's what I did.
+<h2>First Steps: Google Compute Engine</h2>
+First I logged in and setup a GCE Account (<a href="https://cloud.google.com/compute/docs/quickstart" target="_blank">read specifically about creating and getting started with a GCE account</a>) and got <em>gcloud</em> configured. The <em>gcloud</em> is a cli to manage GCE. It's actually a super powerful tool that comes in handy for all sorts of things. Besides managing GCE, it has a thin wrapper around <a href="https://en.wikipedia.org/wiki/Secure_Shell" target="_blank">ssh</a>, <a href="https://en.wikipedia.org/wiki/Secure_copy" target="_blank">scp</a>, and working with servers with those respective tools. I'll use it a bit later to actually run some scripts against the instance I'll be creating.
+
+Once you've signed up for GCE there's a few things worth noting. One is the idea of the <em>project</em> that Google uses within GCE. This is something you're create, or rename the default, or in some way bring into existence to use. A <em>project</em> is something that a host of instances, instance groups, load balancers, networks, networking, and more can be allocated against. It's also something that can be setup for or inside a specific billing group. It might also be helpful to really get an understanding of what a <em>project</em> is by reading the <a href="https://cloud.google.com/compute/docs/projects" target="_blank">Google documentation on <em>projects</em></a>.
+
+Once the project is ready, we can move forward with installing <em>gcloud</em>. The way this is done is by installing the Google Cloud SDK. The curl below pulls down and executes the installation. Then the following command restarts the shell. Finally the gcloud init command kicks off the initialization of the gcloud cli.
+
+[sourcecode language="bash"]
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+gcloud init
+[/sourcecode]
+
+Running gcloud init does several things.
+<ul>
+    <li>Authenticates the user (or allows re-use of saved credentials).</li>
+    <li>Requests the user's project &amp; saves it in the gcloud configuration.</li>
+    <li>Requests and sets a default zone based on the project in the gcloud configuration.</li>
+</ul>
+At this point gcloud is setup for use, however upon connecting for the first time to an instance, gcloud will prompt to create a new ssh key set. This key set will be created and autonomous of the key set I have setup for git or other cli ssh tooling I'll use. I'll talk more about that later. NOTE: It is very important for subsequent steps to insure the gcloud ssh key is generated. I'll get around to that in a moment under the "<a href="#gcloudterraform"><em>User gcloud w/ Terraform</em></a>" section.
+
+The specific instructions for setting up <em>gcloud</em> are also available here in <a href="https://cloud.google.com/sdk/" target="_blank">getting started with the Google Cloud SDK</a>. This includes a little more description of what is included and related information about the Google Cloud SDK.
+<h3 id="gcloudterraform">Using gcloud w/ Terraform</h3>
+When building Terraform configurations for Google Cloud there are a number of settings that <em>gcloud</em> can pull up very easily. Here are some of the commands I've used most frequently when setting up google compute instances.
+
+List machine types in a project in table.
+
+[sourcecode language="bash"]
+gcloud compute machine-types list
+[/sourcecode]
+
+List the URIs of all machine types in a project.
+
+[sourcecode language="bash"]
+gcloud compute machine-types list --uri
+[/sourcecode]
+
+List all machine types in the us-central1-b and europe-west1-d zones.
+
+[sourcecode language="bash"]
+gcloud compute machine-types list --zones us-central1-b europe-west1-d
+[/sourcecode]
+
+List all images in a project in table.
+
+[sourcecode language="bash"]
+gcloud compute images list
+[/sourcecode]
+
+List all the URI images in a project.
+
+[sourcecode language="bash"]
+gcloud compute images list --uri
+[/sourcecode]
+
+The last thing is connecting to instances, with <em>gcloud</em> looks like the following.
+
+[sourcecode language="bash"]
+gcloud compute --project "project-name" ssh --zone "us-central1-b" "instance-name"
+[/sourcecode]
+
+There's some super useful ways to execute commands with the <em>gcloud</em> cli, which provides a great way for bash scripting against instances.
+
+These all provide quick ways to get the specific GCE specific settings for the Terraform file. Which brings up a perfect point to get into a basic Terraform instance creation.
+<h2>Next: Terraforming with Terraform</h2>
+If you don't have <a href="https://www.terraform.io/" target="_blank">Terraform</a> installed, the following bash commands will get you all setup on your machine. With this script below I can wrap this up as an installation script for the instance further along in this how-to. We'll just have to tweak it specifically for Linux, as this script is focused around downloading and installing the Darwin (OS-X) version.
+
+[sourcecode language="bash"]
+cd /home/adron
+
+# Create a move into directory.
+mkdir terraform_0_6_14
+cd terraform_0_6_14
+
+# Download.
+curl -O https://releases.hashicorp.com/terraform/0.6.14/terraform_0.6.14_darwin_amd64.zip
+# Unzip and install
+unzip terraform_0.6.14_darwin_amd64.zip
+
+export PATH=/home/terraform_0_6_14:$PATH
+[/sourcecode]
+
+To confirm that Terraform is installed correctly, just type terraform. The following should be displayed, which will let you know that the path variable is set to the correct path.
+
+[sourcecode language="bash"]
+$ terraform
+usage: terraform [--version] [--help] &lt;command&gt; [&lt;args&gt;]
+
+Available commands are:
+    apply      Builds or changes infrastructure
+    destroy    Destroy Terraform-managed infrastructure
+    get        Download and install modules for the configuration
+    graph      Create a visual graph of Terraform resources
+    init       Initializes Terraform configuration from a module
+    output     Read an output from a state file
+    plan       Generate and show an execution plan
+    push       Upload this Terraform module to Atlas to run
+    refresh    Update local state file against real resources
+    remote     Configure remote state storage
+    show       Inspect Terraform state or plan
+    taint      Manually mark a resource for recreation
+    version    Prints the Terraform version
+[/sourcecode]
+
+You may also want to add the PATH to the ~/.bash_profile on your own OS-X machine, like I did. Instead of that last bit of script that just exports the PATH variable, I swapped it out with the following code.
+
+[sourcecode language="bash"]
+echo "
+export PATH=/home/terraform_0_6_14:$PATH
+" &gt;&gt; greetings.txt
+[/sourcecode]
+
+Yes, the odd spacing and new lines are important, because that will append the export to PATH in a way that provides space before and below the line. It just leaves the ~/.bash_profile file looking a little cleaner.
+
+Once you've added it to your ~/.bash_profile, remember to either restart the terminal or source the file to get the PATH variable updated.
+
+[sourcecode language="bash"]
+source ~/.bash_profile
+[/sourcecode]
+
+The next thing we'll need for Terraform use with GCE is the <em>account.json</em> file. This is the file that a service account sets up to secure our connection between GCE and Terraform.
+
+<img class="alignnone size-full wp-image-13206" src="https://compositecode.files.wordpress.com/2016/04/user_accountjson_001.png" alt="user_accountjson_001" width="316" height="396" />
+
+Navigate to the Permissions section of the GCE interface and add a service account. When you click to create a service account you'll be prompted with the following.
+
+<img class="alignnone size-full wp-image-13207" src="https://compositecode.files.wordpress.com/2016/04/user_accountjson_002.png" alt="user_accountjson_002" width="507" height="492" />
+
+Here check the "Furnish a new private key" and click on the JSON for the key type. Then create create. This will create the service account and the key will download locally. The key is not named account.json, but the file downloaded is what to use as the account.json file, it just needs renamed.
+
+Now we're ready to get into actually putting together an infrastructure project. Let's start with a basic setup. First I need the following files.
+<ul>
+    <li>account.json</li>
+    <li>theterraformfile.tf</li>
+</ul>
+These are needed files and will get a terraform workflow started, but I break them out a bit more. Terraform files after all are all collected and then processed, so the configuration doesn't have to all be in a single file.
+
+What I have been doing lately, is take the terraform file and break it out accordingly. For the connection I create a connection.tf file, for configuration around instances I create an instances.tf file, for network addresses (static IPs) that goes in an addresses.tf file. If any of those files get to big within a project I break those out further like instance-instancename1.tf and instance-instancename2.tf.
+
+With that practice applied, I end up with a project with the following files.
+<ul>
+    <li>account.json</li>
+    <li>instances.tf</li>
+    <li>addresses.tf</li>
+</ul>
+I then run git init and add two more files.
+<ul>
+    <li>.gitignore</li>
+    <li>README.md</li>
+</ul>
+These have no relevance to the actual Terraform files, but they're standard practice and come in very helpful once the project starts to grow. You'll want a README.md for notes and documentation and you'll definitely want to keep trash out of the project with the .gitignore, so even though they're not required right now, if you're following along add the files.
+
+In the <a href="https://github.com/Adron/starting-with-gce/blob/master/README.md" target="_blank">README.md</a>, of course, we write our documentation! So anyway, it'll be there in the <a href="https://github.com/Adron/starting-with-gce" target="_blank">repo</a> I've created for this blog entry here.
+
+In the .gitignore file add the following.
+
+[sourcecode language="bash"]
+.DS_Store
+account.json
+[/sourcecode]
+
+With that in place, I added this to the instances.tf file.
+
+[sourcecode language="bash"]
+# Create a new instance
+resource "google_compute_instance" "flirpderp" {
+    name = "flirpderp"
+    machine_type = "f1-micro"
+
+    zone = "us-central1-b"
+
+    disk {
+        image = "ubuntu-1404-trusty-v20160406"
+    }
+
+    network_interface {
+        network = "default"
+        access_config {}
+    }
+
+    service_account {
+        scopes = ["userinfo-email", "compute-ro", "storage-ro"]
+    }
+}
+[/sourcecode]
+
+To get the machine_type and disk image above I just used the following gcloud commands.
+
+[sourcecode language="bash"]
+gcloud compute machine-types list
+[/sourcecode]
+and
+
+[sourcecode language="bash"]
+gcloud compute images list
+[/sourcecode]
+
+For this first build, I just wanted to get a basic template with a small (and by association super cheap) instance. For this I went with <em>f1-micro</em>. For the disk, I used the base disk image load of the <em>ubuntu-1404-trusty-v20160406</em>.
+
+Insure the ssh key is setup.
+
+Run your first GCE terraform to verify the connection.
+Run and create first GCE instance with Terraform.
+Run and create instance on GCE w/ remote exec.
+Run and create instance on GCE w/ local exec w/ gcloud.     

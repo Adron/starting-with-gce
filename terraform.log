@@ -1,0 +1,902 @@
+2016/04/22 18:12:53 [INFO] Terraform version: 0.6.14  c7e5b24531e73aae1eec2f7530d968ac8c69804c
+2016/04/22 18:12:53 [DEBUG] Detected home directory from env var: /Users/adron
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: atlas = /usr/local/terraform_0_6_14/terraform-provider-atlas
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: aws = /usr/local/terraform_0_6_14/terraform-provider-aws
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: azure = /usr/local/terraform_0_6_14/terraform-provider-azure
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: azurerm = /usr/local/terraform_0_6_14/terraform-provider-azurerm
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: chef = /usr/local/terraform_0_6_14/terraform-provider-chef
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: clc = /usr/local/terraform_0_6_14/terraform-provider-clc
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: cloudflare = /usr/local/terraform_0_6_14/terraform-provider-cloudflare
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: cloudstack = /usr/local/terraform_0_6_14/terraform-provider-cloudstack
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: consul = /usr/local/terraform_0_6_14/terraform-provider-consul
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: datadog = /usr/local/terraform_0_6_14/terraform-provider-datadog
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: digitalocean = /usr/local/terraform_0_6_14/terraform-provider-digitalocean
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: dme = /usr/local/terraform_0_6_14/terraform-provider-dme
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: dnsimple = /usr/local/terraform_0_6_14/terraform-provider-dnsimple
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: docker = /usr/local/terraform_0_6_14/terraform-provider-docker
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: dyn = /usr/local/terraform_0_6_14/terraform-provider-dyn
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: github = /usr/local/terraform_0_6_14/terraform-provider-github
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: google = /usr/local/terraform_0_6_14/terraform-provider-google
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: heroku = /usr/local/terraform_0_6_14/terraform-provider-heroku
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: influxdb = /usr/local/terraform_0_6_14/terraform-provider-influxdb
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: mailgun = /usr/local/terraform_0_6_14/terraform-provider-mailgun
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: mysql = /usr/local/terraform_0_6_14/terraform-provider-mysql
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: null = /usr/local/terraform_0_6_14/terraform-provider-null
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: openstack = /usr/local/terraform_0_6_14/terraform-provider-openstack
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: packet = /usr/local/terraform_0_6_14/terraform-provider-packet
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: postgresql = /usr/local/terraform_0_6_14/terraform-provider-postgresql
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: powerdns = /usr/local/terraform_0_6_14/terraform-provider-powerdns
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: rundeck = /usr/local/terraform_0_6_14/terraform-provider-rundeck
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: statuscake = /usr/local/terraform_0_6_14/terraform-provider-statuscake
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: template = /usr/local/terraform_0_6_14/terraform-provider-template
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: terraform = /usr/local/terraform_0_6_14/terraform-provider-terraform
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: tls = /usr/local/terraform_0_6_14/terraform-provider-tls
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: triton = /usr/local/terraform_0_6_14/terraform-provider-triton
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: ultradns = /usr/local/terraform_0_6_14/terraform-provider-ultradns
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: vcd = /usr/local/terraform_0_6_14/terraform-provider-vcd
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: vsphere = /usr/local/terraform_0_6_14/terraform-provider-vsphere
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: chef = /usr/local/terraform_0_6_14/terraform-provisioner-chef
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: file = /usr/local/terraform_0_6_14/terraform-provisioner-file
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: local-exec = /usr/local/terraform_0_6_14/terraform-provisioner-local-exec
+2016/04/22 18:12:53 [DEBUG] Discovered plugin: remote-exec = /usr/local/terraform_0_6_14/terraform-provisioner-remote-exec
+2016/04/22 18:12:53 [DEBUG] Detected home directory from env var: /Users/adron
+2016/04/22 18:12:53 [DEBUG] Attempting to open CLI config file: /Users/adron/.terraformrc
+2016/04/22 18:12:53 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2016/04/22 18:12:53 [DEBUG] Detected home directory from env var: /Users/adron
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.OrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.AddOutputOrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+google_compute_instance.flirpderp
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.DisableProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.MissingProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.ProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.VertexTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.FlattenTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.ProxyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.DestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.CreateBeforeDestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.PruneDestroyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.PruneNoopTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:53 [TRACE] Graph after step *terraform.RootTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:53 [DEBUG] Starting graph walk: walkInput
+2016/04/22 18:12:53 [DEBUG] vertex root.provider.google: walking
+2016/04/22 18:12:53 [DEBUG] vertex root.provider.google: evaluating
+2016/04/22 18:12:53 [TRACE] [walkInput] Entering eval tree: provider.google
+2016/04/22 18:12:53 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:53 [DEBUG] root: eval: *terraform.EvalInitProvider
+2016/04/22 18:12:53 [DEBUG] Starting plugin: /usr/local/terraform_0_6_14/terraform-provider-google []string{"/usr/local/terraform_0_6_14/terraform-provider-google"}
+2016/04/22 18:12:53 [DEBUG] Waiting for RPC address for: /usr/local/terraform_0_6_14/terraform-provider-google
+2016/04/22 18:12:53 [DEBUG] terraform-provider-google: 2016/04/22 18:12:53 Plugin address: unix /var/folders/kl/1vw865bd33ncj0m8bclc37bc0000gn/T/tf-plugin163386387
+2016/04/22 18:12:53 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:53 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:53 [DEBUG] root: eval: *terraform.EvalGetProvider
+2016/04/22 18:12:53 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:53 [DEBUG] root: eval: *terraform.EvalBuildProviderConfig
+2016/04/22 18:12:53 [DEBUG] root: eval: *terraform.EvalInputProvider
+2016/04/22 18:12:55 [ERR] UIInput scan err: unexpected newline
+2016/04/22 18:12:56 [ERR] UIInput scan err: unexpected newline
+2016/04/22 18:12:57 [ERR] UIInput scan err: unexpected newline
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [TRACE] [walkInput] Exiting eval tree: provider.google
+2016/04/22 18:12:57 [DEBUG] vertex google_compute_instance.flirpderp, got dep: provider.google
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: evaluating
+2016/04/22 18:12:57 [TRACE] [walkInput] Entering eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2016/04/22 18:12:57 [TRACE] [walkInput] Exiting eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: expanding/walking dynamic subgraph
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.RootTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: evaluating
+2016/04/22 18:12:57 [TRACE] [walkInput] Entering eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInstanceInfo
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [TRACE] [walkInput] Exiting eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex provider.google (close), got dep: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google (close): walking
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google (close): evaluating
+2016/04/22 18:12:57 [TRACE] [walkInput] Entering eval tree: provider.google (close)
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalCloseProvider
+2016/04/22 18:12:57 [TRACE] [walkInput] Exiting eval tree: provider.google (close)
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.OrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.AddOutputOrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+google_compute_instance.flirpderp
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.DisableProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.MissingProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.VertexTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.FlattenTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProxyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.DestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CreateBeforeDestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneDestroyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneNoopTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.RootTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] Starting graph walk: walkValidate
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google: evaluating
+2016/04/22 18:12:57 [TRACE] [walkValidate] Entering eval tree: provider.google
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInitProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalGetProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalBuildProviderConfig
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalValidateProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSetProviderConfig
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [TRACE] [walkValidate] Exiting eval tree: provider.google
+2016/04/22 18:12:57 [DEBUG] vertex google_compute_instance.flirpderp, got dep: provider.google
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: evaluating
+2016/04/22 18:12:57 [TRACE] [walkValidate] Entering eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalValidateCount
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2016/04/22 18:12:57 [TRACE] [walkValidate] Exiting eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: expanding/walking dynamic subgraph
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.RootTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: evaluating
+2016/04/22 18:12:57 [TRACE] [walkValidate] Entering eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalGetProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalValidateResource
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInstanceInfo
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [TRACE] [walkValidate] Exiting eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex provider.google (close), got dep: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google (close): walking
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google (close): evaluating
+2016/04/22 18:12:57 [TRACE] [walkValidate] Entering eval tree: provider.google (close)
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalCloseProvider
+2016/04/22 18:12:57 [TRACE] [walkValidate] Exiting eval tree: provider.google (close)
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.OrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.AddOutputOrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+google_compute_instance.flirpderp
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.DisableProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.MissingProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.VertexTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.FlattenTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProxyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.DestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CreateBeforeDestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneDestroyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneNoopTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.RootTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] Starting graph walk: walkRefresh
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google: evaluating
+2016/04/22 18:12:57 [TRACE] [walkRefresh] Entering eval tree: provider.google
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInitProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalGetProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalBuildProviderConfig
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSetProviderConfig
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalConfigProvider
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Authenticating using DefaultClient
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating GCE client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating GKE client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating Google Cloud DNS client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating Google Storage Client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating Google SqlAdmin Client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instatiating Google Pubsub Client...
+2016/04/22 18:12:57 [TRACE] [walkRefresh] Exiting eval tree: provider.google
+2016/04/22 18:12:57 [DEBUG] vertex google_compute_instance.flirpderp, got dep: provider.google
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: evaluating
+2016/04/22 18:12:57 [TRACE] [walkRefresh] Entering eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2016/04/22 18:12:57 [TRACE] [walkRefresh] Exiting eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: expanding/walking dynamic subgraph
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.RootTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: evaluating
+2016/04/22 18:12:57 [TRACE] [walkRefresh] Entering eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInstanceInfo
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalGetProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalReadState
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalRefresh
+2016/04/22 18:12:57 [DEBUG] refresh: google_compute_instance.flirpderp: no state, not refreshing
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalWriteState
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [TRACE] [walkRefresh] Exiting eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex provider.google (close), got dep: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google (close): walking
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google (close): evaluating
+2016/04/22 18:12:57 [TRACE] [walkRefresh] Entering eval tree: provider.google (close)
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalCloseProvider
+2016/04/22 18:12:57 [TRACE] [walkRefresh] Exiting eval tree: provider.google (close)
+2016/04/22 18:12:57 [INFO] Writing state output to: terraform.tfstate
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.OrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.AddOutputOrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+google_compute_instance.flirpderp
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.DisableProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.MissingProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.VertexTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.FlattenTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProxyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.DestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CreateBeforeDestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneDestroyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneNoopTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.RootTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] Starting graph walk: walkPlan
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google: evaluating
+2016/04/22 18:12:57 [TRACE] [walkPlan] Entering eval tree: provider.google
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInitProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalGetProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalBuildProviderConfig
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSetProviderConfig
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalConfigProvider
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Authenticating using DefaultClient
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating GCE client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating GKE client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating Google Cloud DNS client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating Google Storage Client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instantiating Google SqlAdmin Client...
+2016/04/22 18:12:57 [DEBUG] terraform-provider-google: 2016/04/22 18:12:57 [INFO] Instatiating Google Pubsub Client...
+2016/04/22 18:12:57 [TRACE] [walkPlan] Exiting eval tree: provider.google
+2016/04/22 18:12:57 [DEBUG] vertex google_compute_instance.flirpderp, got dep: provider.google
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: evaluating
+2016/04/22 18:12:57 [TRACE] [walkPlan] Entering eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2016/04/22 18:12:57 [TRACE] [walkPlan] Exiting eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: expanding/walking dynamic subgraph
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.RootTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: walking
+2016/04/22 18:12:57 [DEBUG] vertex root.google_compute_instance.flirpderp: evaluating
+2016/04/22 18:12:57 [TRACE] [walkPlan] Entering eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInstanceInfo
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalOpFilter
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalSequence
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalInterpolate
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalGetProvider
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalReadState
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalDiff
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalCheckPreventDestroy
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalIgnoreChanges
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalWriteState
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalDiffTainted
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalWriteDiff
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [DEBUG] root: eval: terraform.EvalNoop
+2016/04/22 18:12:57 [TRACE] [walkPlan] Exiting eval tree: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex provider.google (close), got dep: google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google (close): walking
+2016/04/22 18:12:57 [DEBUG] vertex root.provider.google (close): evaluating
+2016/04/22 18:12:57 [TRACE] [walkPlan] Entering eval tree: provider.google (close)
+2016/04/22 18:12:57 [DEBUG] root: eval: *terraform.EvalCloseProvider
+2016/04/22 18:12:57 [TRACE] [walkPlan] Exiting eval tree: provider.google (close)
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.OrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.AddOutputOrphanTransformer:
+
+google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+google_compute_instance.flirpderp
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.DisableProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.MissingProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.VertexTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.FlattenTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.ProxyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.DestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CreateBeforeDestroyTransformer:
+
+google_compute_instance.flirpderp
+  google_compute_instance.flirpderp (destroy tainted)
+  google_compute_instance.flirpderp (destroy)
+  provider.google
+google_compute_instance.flirpderp (destroy tainted)
+  provider.google
+google_compute_instance.flirpderp (destroy)
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneDestroyTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.PruneNoopTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+  provider.google
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:57 [TRACE] Graph after step *terraform.RootTransformer:
+
+google_compute_instance.flirpderp
+  provider.google
+provider.google
+provider.google (close)
+  google_compute_instance.flirpderp
+2016/04/22 18:12:57 [DEBUG] waiting for all plugin processes to complete...
+2016/04/22 18:12:57 [DEBUG] /usr/local/terraform_0_6_14/terraform-provider-google: plugin process exited
