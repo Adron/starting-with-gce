@@ -160,6 +160,17 @@ In the .gitignore file add the following.
 account.json
 [/sourcecode]
 
+In the connection.tf file I added the following connection information. The ${file("../secrets/account.json")} configuration interpolates the path of the file based on where the project is located and pulls in the appropriate values for GCE.
+
+[sourcecode language="bash"]
+# Configure the Google Cloud provider
+provider "google" {
+  credentials = "${file("account.json")}"
+  project     = "that-big-universe"
+  region      = "us-central1"
+}
+[/sourcecode]
+
 With that in place, I added this to the instances.tf file.
 
 [sourcecode language="bash"]
