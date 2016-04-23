@@ -85,7 +85,7 @@ To confirm that Terraform is installed correctly, just type terraform. The follo
 
 [sourcecode language="bash"]
 $ terraform
-usage: terraform [--version] [--help] &lt;command&gt; [&lt;args&gt;]
+usage: terraform [--version] [--help] &amp;lt;command&amp;gt; [&amp;lt;args&amp;gt;]
 
 Available commands are:
     apply      Builds or changes infrastructure
@@ -108,7 +108,7 @@ You may also want to add the PATH to the ~/.bash_profile on your own OS-X machin
 [sourcecode language="bash"]
 echo "
 export PATH=/home/terraform_0_6_14:$PATH
-" &gt;&gt; greetings.txt
+" &amp;gt;&amp;gt; greetings.txt
 [/sourcecode]
 
 Yes, the odd spacing and new lines are important, because that will append the export to PATH in a way that provides space before and below the line. It just leaves the ~/.bash_profile file looking a little cleaner.
@@ -209,9 +209,137 @@ gcloud compute images list
 
 For this first build, I just wanted to get a basic template with a small (and by association super cheap) instance. For this I went with <em>f1-micro</em>. For the disk, I used the base disk image load of the <em>ubuntu-1404-trusty-v20160406</em>.
 
-Insure the ssh key is setup.
+All configuration set, I opened up a bash terminal and typed in the following.
 
-Run your first GCE terraform to verify the connection.
-Run and create first GCE instance with Terraform.
-Run and create instance on GCE w/ remote exec.
-Run and create instance on GCE w/ local exec w/ gcloud.     
+[sourcecode language="bash"]
+terraform plan
+[/sourcecode]
+
+This command then displayed the following result.
+
+[sourcecode language="bash"]
+Refreshing Terraform state prior to plan...
+
+The Terraform execution plan has been generated and is shown below.
+Resources are shown in alphabetical order for quick scanning. Green resources
+will be created (or destroyed and then created if an existing resource
+exists), yellow resources are being changed in-place, and red resources
+will be destroyed.
+
+Note: You didn't specify an "-out" parameter to save this plan, so when
+"apply" is called, Terraform can't guarantee this is what will execute.
+
++ google_compute_instance.flirpderp
+    can_ip_forward:                                      "" =&gt; "0"
+    disk.#:                                              "" =&gt; "1"
+    disk.0.auto_delete:                                  "" =&gt; "1"
+    disk.0.image:                                        "" =&gt; "ubuntu-1404-trusty-v20160406"
+    machine_type:                                        "" =&gt; "f1-micro"
+    metadata_fingerprint:                                "" =&gt; "&lt;computed&gt;"
+    name:                                                "" =&gt; "flirpderp"
+    network_interface.#:                                 "" =&gt; "1"
+    network_interface.0.access_config.#:                 "" =&gt; "1"
+    network_interface.0.access_config.0.assigned_nat_ip: "" =&gt; "&lt;computed&gt;"
+    network_interface.0.address:                         "" =&gt; "&lt;computed&gt;"
+    network_interface.0.name:                            "" =&gt; "&lt;computed&gt;"
+    network_interface.0.network:                         "" =&gt; "default"
+    self_link:                                           "" =&gt; "&lt;computed&gt;"
+    service_account.#:                                   "" =&gt; "1"
+    service_account.0.email:                             "" =&gt; "&lt;computed&gt;"
+    service_account.0.scopes.#:                          "" =&gt; "3"
+    service_account.0.scopes.1632638332:                 "" =&gt; "https://www.googleapis.com/auth/devstorage.read_only"
+    service_account.0.scopes.2428168921:                 "" =&gt; "https://www.googleapis.com/auth/userinfo.email"
+    service_account.0.scopes.2862113455:                 "" =&gt; "https://www.googleapis.com/auth/compute.readonly"
+    tags_fingerprint:                                    "" =&gt; "&lt;computed&gt;"
+    zone:                                                "" =&gt; "us-central1-b"
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+[/sourcecode]
+
+Let's walk through this result to get an idea of what just happened. Terraform has taken all of the Terraform files, which currently is only one file with actual configuration in it, and processed them to create a plan of changes. At the very bottom of the results the line "Plan: 1 to add, 0 to change, 0 to destroy." simple shows what will occur if I were to apply these changes. Many of the values are also set as which simply means that when processed they'll be calculated and set. Otherwise most of the other values are simply the settings I've put in via the actual Terraform configuration files.
+
+Now I applied the configuration.
+
+[sourcecode language="bash"]
+terraform apply
+[/sourcecode]
+
+The output of this command will display as shown.
+
+[sourcecode language="bash"]
+google_compute_instance.flirpderp: Creating...
+  can_ip_forward:                                      "" =&gt; "0"
+  disk.#:                                              "" =&gt; "1"
+  disk.0.auto_delete:                                  "" =&gt; "1"
+  disk.0.image:                                        "" =&gt; "ubuntu-1404-trusty-v20160406"
+  machine_type:                                        "" =&gt; "f1-micro"
+  metadata_fingerprint:                                "" =&gt; "&lt;computed&gt;"
+  name:                                                "" =&gt; "flirpderp"
+  network_interface.#:                                 "" =&gt; "1"
+  network_interface.0.access_config.#:                 "" =&gt; "1"
+  network_interface.0.access_config.0.assigned_nat_ip: "" =&gt; "&lt;computed&gt;"
+  network_interface.0.address:                         "" =&gt; "&lt;computed&gt;"
+  network_interface.0.name:                            "" =&gt; "&lt;computed&gt;"
+  network_interface.0.network:                         "" =&gt; "default"
+  self_link:                                           "" =&gt; "&lt;computed&gt;"
+  service_account.#:                                   "" =&gt; "1"
+  service_account.0.email:                             "" =&gt; "&lt;computed&gt;"
+  service_account.0.scopes.#:                          "" =&gt; "3"
+  service_account.0.scopes.1632638332:                 "" =&gt; "https://www.googleapis.com/auth/devstorage.read_only"
+  service_account.0.scopes.2428168921:                 "" =&gt; "https://www.googleapis.com/auth/userinfo.email"
+  service_account.0.scopes.2862113455:                 "" =&gt; "https://www.googleapis.com/auth/compute.readonly"
+  tags_fingerprint:                                    "" =&gt; "&lt;computed&gt;"
+  zone:                                                "" =&gt; "us-central1-b"
+google_compute_instance.flirpderp: Creation complete
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+The state of your infrastructure has been saved to the path
+below. This state is required to modify and destroy your
+infrastructure, so keep it safe. To inspect the complete state
+use the `terraform show` command.
+
+State path: terraform.tfstate
+[/sourcecode]
+
+I logged in at this point to verify the creation of the instance.
+
+<img class="alignnone size-full wp-image-13230" src="https://compositecode.files.wordpress.com/2016/04/flirpderp.png" alt="flirpderp" width="2554" height="1140" />
+
+In the interface the instance (or instances if I have multiple) shows up in a list underneath the fancy CPU utilization chart.
+
+Cleanup
+
+Since I don't actually want this instance to stay live currently, to destroy the instance I can use the terraform destroy command. If there were other instances in this set of Terraform configuraiton files, it would also destroy those too. Destroy, suffice to say is something that is very destructive and should be used carefully. For this example I'm going to destroy this instance now, but since I have the configuration I'll add a little bit more to it and recreate it shortly.
+
+I issue this command.
+
+[sourcecode language="bash"]
+terraform destroy
+[/sourcecode]
+
+This displays...
+
+[sourcecode language="bash"]
+Do you really want to destroy?
+  Terraform will delete all your managed infrastructure.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+[/sourcecode]
+
+Then I confirm by typing 'yes' and then the following result of this acction is returned.
+
+[sourcecode language="bash"]
+google_compute_instance.flirpderp: Refreshing state... (ID: flirpderp)
+google_compute_instance.flirpderp: Destroying...
+google_compute_instance.flirpderp: Destruction complete
+
+Apply complete! Resources: 0 added, 0 changed, 1 destroyed.
+[/sourcecode]
+
+At this point, it's pretty cool that I can build a single instance, but that's of extremely limited use if I can't get it deployed out into GCE in a usable state. The most common ways I'd want to wrap up configuration and installation of software on an instance is to issue some bash commands to the instance. Well, Terraform has ways that exactly that can be done. I'll cover that in the follow up to this article.
+<h3>References:</h3>
+<ul>
+    <li><a href="https://github.com/Adron/starting-with-gce/tree/blog-entry-01">The Github Repository branch for this blog entry.</a></li>
+</ul>
