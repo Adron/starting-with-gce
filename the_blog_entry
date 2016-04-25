@@ -14,9 +14,9 @@ gcloud init
 
 Running gcloud init does several things.
 <ul>
-    <li>Authenticates the user (or allows re-use of saved credentials).</li>
-    <li>Requests the user's project &amp; saves it in the gcloud configuration.</li>
-    <li>Requests and sets a default zone based on the project in the gcloud configuration.</li>
+	<li>Authenticates the user (or allows re-use of saved credentials).</li>
+	<li>Requests the user's project & saves it in the gcloud configuration.</li>
+	<li>Requests and sets a default zone based on the project in the gcloud configuration.</li>
 </ul>
 At this point gcloud is setup for use, however upon connecting for the first time to an instance, gcloud will prompt to create a new ssh key set. This key set will be created and autonomous of the key set I have setup for git or other cli ssh tooling I'll use. I'll talk more about that later. NOTE: It is very important for subsequent steps to insure the gcloud ssh key is generated. I'll get around to that in a moment under the "<a href="#gcloudterraform"><em>User gcloud w/ Terraform</em></a>" section.
 
@@ -85,7 +85,7 @@ To confirm that Terraform is installed correctly, just type terraform. The follo
 
 [sourcecode language="bash"]
 $ terraform
-usage: terraform [--version] [--help] &amp;lt;command&amp;gt; [&amp;lt;args&amp;gt;]
+usage: terraform [--version] [--help] &amp;lt;command> [&amp;lt;args>]
 
 Available commands are:
     apply      Builds or changes infrastructure
@@ -108,7 +108,7 @@ You may also want to add the PATH to the ~/.bash_profile on your own OS-X machin
 [sourcecode language="bash"]
 echo "
 export PATH=/home/terraform_0_6_14:$PATH
-" &amp;gt;&amp;gt; greetings.txt
+" >> ~/.bash_profile
 [/sourcecode]
 
 Yes, the odd spacing and new lines are important, because that will append the export to PATH in a way that provides space before and below the line. It just leaves the ~/.bash_profile file looking a little cleaner.
@@ -131,8 +131,8 @@ Here check the "Furnish a new private key" and click on the JSON for the key typ
 
 Now we're ready to get into actually putting together an infrastructure project. Let's start with a basic setup. First I need the following files.
 <ul>
-    <li>account.json</li>
-    <li>theterraformfile.tf</li>
+	<li>account.json</li>
+	<li>theterraformfile.tf</li>
 </ul>
 These are needed files and will get a terraform workflow started, but I break them out a bit more. Terraform files after all are all collected and then processed, so the configuration doesn't have to all be in a single file.
 
@@ -140,14 +140,14 @@ What I have been doing lately, is take the terraform file and break it out accor
 
 With that practice applied, I end up with a project with the following files.
 <ul>
-    <li>account.json</li>
-    <li>instances.tf</li>
-    <li>addresses.tf</li>
+	<li>account.json</li>
+	<li>instances.tf</li>
+	<li>addresses.tf</li>
 </ul>
 I then run git init and add two more files.
 <ul>
-    <li>.gitignore</li>
-    <li>README.md</li>
+	<li>.gitignore</li>
+	<li>README.md</li>
 </ul>
 These have no relevance to the actual Terraform files, but they're standard practice and come in very helpful once the project starts to grow. You'll want a README.md for notes and documentation and you'll definitely want to keep trash out of the project with the .gitignore, so even though they're not required right now, if you're following along add the files.
 
@@ -230,28 +230,28 @@ Note: You didn't specify an "-out" parameter to save this plan, so when
 "apply" is called, Terraform can't guarantee this is what will execute.
 
 + google_compute_instance.flirpderp
-    can_ip_forward:                                      "" =&gt; "0"
-    disk.#:                                              "" =&gt; "1"
-    disk.0.auto_delete:                                  "" =&gt; "1"
-    disk.0.image:                                        "" =&gt; "ubuntu-1404-trusty-v20160406"
-    machine_type:                                        "" =&gt; "f1-micro"
-    metadata_fingerprint:                                "" =&gt; "&lt;computed&gt;"
-    name:                                                "" =&gt; "flirpderp"
-    network_interface.#:                                 "" =&gt; "1"
-    network_interface.0.access_config.#:                 "" =&gt; "1"
-    network_interface.0.access_config.0.assigned_nat_ip: "" =&gt; "&lt;computed&gt;"
-    network_interface.0.address:                         "" =&gt; "&lt;computed&gt;"
-    network_interface.0.name:                            "" =&gt; "&lt;computed&gt;"
-    network_interface.0.network:                         "" =&gt; "default"
-    self_link:                                           "" =&gt; "&lt;computed&gt;"
-    service_account.#:                                   "" =&gt; "1"
-    service_account.0.email:                             "" =&gt; "&lt;computed&gt;"
-    service_account.0.scopes.#:                          "" =&gt; "3"
-    service_account.0.scopes.1632638332:                 "" =&gt; "https://www.googleapis.com/auth/devstorage.read_only"
-    service_account.0.scopes.2428168921:                 "" =&gt; "https://www.googleapis.com/auth/userinfo.email"
-    service_account.0.scopes.2862113455:                 "" =&gt; "https://www.googleapis.com/auth/compute.readonly"
-    tags_fingerprint:                                    "" =&gt; "&lt;computed&gt;"
-    zone:                                                "" =&gt; "us-central1-b"
+    can_ip_forward:                                      "" => "0"
+    disk.#:                                              "" => "1"
+    disk.0.auto_delete:                                  "" => "1"
+    disk.0.image:                                        "" => "ubuntu-1404-trusty-v20160406"
+    machine_type:                                        "" => "f1-micro"
+    metadata_fingerprint:                                "" => "<computed>"
+    name:                                                "" => "flirpderp"
+    network_interface.#:                                 "" => "1"
+    network_interface.0.access_config.#:                 "" => "1"
+    network_interface.0.access_config.0.assigned_nat_ip: "" => "<computed>"
+    network_interface.0.address:                         "" => "<computed>"
+    network_interface.0.name:                            "" => "<computed>"
+    network_interface.0.network:                         "" => "default"
+    self_link:                                           "" => "<computed>"
+    service_account.#:                                   "" => "1"
+    service_account.0.email:                             "" => "<computed>"
+    service_account.0.scopes.#:                          "" => "3"
+    service_account.0.scopes.1632638332:                 "" => "https://www.googleapis.com/auth/devstorage.read_only"
+    service_account.0.scopes.2428168921:                 "" => "https://www.googleapis.com/auth/userinfo.email"
+    service_account.0.scopes.2862113455:                 "" => "https://www.googleapis.com/auth/compute.readonly"
+    tags_fingerprint:                                    "" => "<computed>"
+    zone:                                                "" => "us-central1-b"
 
 Plan: 1 to add, 0 to change, 0 to destroy.
 [/sourcecode]
@@ -268,28 +268,28 @@ The output of this command will display as shown.
 
 [sourcecode language="bash"]
 google_compute_instance.flirpderp: Creating...
-  can_ip_forward:                                      "" =&gt; "0"
-  disk.#:                                              "" =&gt; "1"
-  disk.0.auto_delete:                                  "" =&gt; "1"
-  disk.0.image:                                        "" =&gt; "ubuntu-1404-trusty-v20160406"
-  machine_type:                                        "" =&gt; "f1-micro"
-  metadata_fingerprint:                                "" =&gt; "&lt;computed&gt;"
-  name:                                                "" =&gt; "flirpderp"
-  network_interface.#:                                 "" =&gt; "1"
-  network_interface.0.access_config.#:                 "" =&gt; "1"
-  network_interface.0.access_config.0.assigned_nat_ip: "" =&gt; "&lt;computed&gt;"
-  network_interface.0.address:                         "" =&gt; "&lt;computed&gt;"
-  network_interface.0.name:                            "" =&gt; "&lt;computed&gt;"
-  network_interface.0.network:                         "" =&gt; "default"
-  self_link:                                           "" =&gt; "&lt;computed&gt;"
-  service_account.#:                                   "" =&gt; "1"
-  service_account.0.email:                             "" =&gt; "&lt;computed&gt;"
-  service_account.0.scopes.#:                          "" =&gt; "3"
-  service_account.0.scopes.1632638332:                 "" =&gt; "https://www.googleapis.com/auth/devstorage.read_only"
-  service_account.0.scopes.2428168921:                 "" =&gt; "https://www.googleapis.com/auth/userinfo.email"
-  service_account.0.scopes.2862113455:                 "" =&gt; "https://www.googleapis.com/auth/compute.readonly"
-  tags_fingerprint:                                    "" =&gt; "&lt;computed&gt;"
-  zone:                                                "" =&gt; "us-central1-b"
+  can_ip_forward:                                      "" => "0"
+  disk.#:                                              "" => "1"
+  disk.0.auto_delete:                                  "" => "1"
+  disk.0.image:                                        "" => "ubuntu-1404-trusty-v20160406"
+  machine_type:                                        "" => "f1-micro"
+  metadata_fingerprint:                                "" => "<computed>"
+  name:                                                "" => "flirpderp"
+  network_interface.#:                                 "" => "1"
+  network_interface.0.access_config.#:                 "" => "1"
+  network_interface.0.access_config.0.assigned_nat_ip: "" => "<computed>"
+  network_interface.0.address:                         "" => "<computed>"
+  network_interface.0.name:                            "" => "<computed>"
+  network_interface.0.network:                         "" => "default"
+  self_link:                                           "" => "<computed>"
+  service_account.#:                                   "" => "1"
+  service_account.0.email:                             "" => "<computed>"
+  service_account.0.scopes.#:                          "" => "3"
+  service_account.0.scopes.1632638332:                 "" => "https://www.googleapis.com/auth/devstorage.read_only"
+  service_account.0.scopes.2428168921:                 "" => "https://www.googleapis.com/auth/userinfo.email"
+  service_account.0.scopes.2862113455:                 "" => "https://www.googleapis.com/auth/compute.readonly"
+  tags_fingerprint:                                    "" => "<computed>"
+  zone:                                                "" => "us-central1-b"
 google_compute_instance.flirpderp: Creation complete
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
@@ -341,5 +341,5 @@ Apply complete! Resources: 0 added, 0 changed, 1 destroyed.
 At this point, it's pretty cool that I can build a single instance, but that's of extremely limited use if I can't get it deployed out into GCE in a usable state. The most common ways I'd want to wrap up configuration and installation of software on an instance is to issue some bash commands to the instance. Well, Terraform has ways that exactly that can be done. I'll cover that in the follow up to this article.
 <h3>References:</h3>
 <ul>
-    <li><a href="https://github.com/Adron/starting-with-gce/tree/blog-entry-01">The Github Repository branch for this blog entry.</a></li>
+	<li><a href="https://github.com/Adron/starting-with-gce/tree/blog-entry-01">The Github Repository branch for this blog entry.</a></li>
 </ul>
